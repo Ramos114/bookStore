@@ -1,0 +1,1 @@
+alert("yes! is koa static!");
