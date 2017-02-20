@@ -17,7 +17,7 @@ var render = views('./view',{
 var koa_static = require("koa-static-server");
 app.use(koa_static({
 	rootDir:'./static',
-	rootPath:'/staticPath', //url直接访问
+	rootPath:'/static', //url直接访问 
 	maxage:0  //缓存
 }))
 
