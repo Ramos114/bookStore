@@ -7,16 +7,20 @@
 		background-color: #efefef;
 		border-bottom:1px solid #ddd;  
 	}
+	.swipe-tab{
+		position: relative;
+	}
 	.swipe-tab a{
 		position: relative;
 		display: block;
 		float: left;
 		width:50%;  
-		-webkit-top-highlight-color:rgba(0,0,0,0);
+		-webkit-tap-highlight-color:rgba(0,0,0,0);
 	}
 	.swipe-tab a:before{
 		content: '排行榜';
-		width:3rem;
+		width:60px;
+		height: 44px;
 		margin:0 auto;  
 		display: block;
 	}
@@ -25,18 +29,42 @@
 	}
 	.swipe-tab i{
 		position: absolute;
-		left:0;
+		left:30px;
+		bottom:0;
+		width:60px;
+		height: 2px;
+		background: #999; 
+		transition: transform 0.3s ease-out; 
 	}
 	.swipe-tab i:before{
 		content: '';
 	}
-
+	.header-tab .header-user{
+		position: absolute;
+		left:10px;
+		top:10px; 
+		display: block;
+		width:25px;
+		height: 25px; 
+		background: url('/static/img/sign-in.png');
+		background-size: 25px;
+	}
+	.header-tab .header-checkin{
+		position: absolute;
+		right:10px;
+		top:10px; 
+		display: block;
+		width:25px;
+		height: 25px; 
+		background: url('/static/img/user.png');
+		background-size: 25px;
+	}
 </style>
 
 <div class="header-tab">
 	<div class="swipe-tab clear">
 		<a href="javascript:;"></a>
-		<a href="javascript:;"></a>
+		<a href="javascript:;"></a> 
 		<i></i>
 	</div>
 	<em class="header-user"></em>
