@@ -1,98 +1,26 @@
-<style type="text/css">
-	.male-panel{
-		border-bottom:10px solid #ddd;
-	}
-	.opt-btn{
-		display: flex;
-	}
-	.opt-btn a{
-		position: relative;
-		flex-grow: 1;
-		height: 50px;
-		line-height: 50px;
-		text-align: center;
-	}
-	.opt-btn a:first-child:after{
-		position: absolute; 
-		right:0; 
-		height: 50px;
-		width:1px;
-		content: '';
-		background: #ddd; 
-		overflow:hidden;
-	}
-</style>
-	
+
 <section class="male-panel hot-panel ">
 	<div class="hot-title">男生最爱</div> 
 	<ul>
-		<li class="panel-item clear">
+		<li class="panel-item clear" v-for="item in male" v-if="$index <= 5"> 
 				<a href="#">
 					<div class="item-left fl">
-						<img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg">
+						<img alt="{{ item.title }}" v-bind:src="item.cover">
 						<p>完结</p> 
 					</div>
 					<div class="item-right">
-						<p>书名</p>
-						<p>作者</p>
-						<p>简介</p>
+						<p>{{ item.title }}</p>
+						<p>{{ item.authors }}</p>
+						<p>{{ item.summary }}</p>
 						<div class="item-tag-box">
-							<span class="item-tag">标签</span>
+							<span class="item-tag" v-for="tag in item.tags" v-if="$index <4">{{ tag }}</span>
 						</div>
 					</div>
 				</a>
 		</li>
-		<li class="panel-item clear">
-				<a href="#">
-					<div class="item-left fl">
-						<img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg">
-						<p>完结</p> 
-					</div>
-					<div class="item-right">
-						<p>书名</p>
-						<p>作者</p>
-						<p>简介</p>
-						<div class="item-tag-box">
-							<span class="item-tag">标签</span>
-						</div>
-					</div>
-				</a>
-		</li>
-		<li class="panel-item clear">
-				<a href="#">
-					<div class="item-left fl">
-						<img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg">
-						<p>完结</p> 
-					</div>
-					<div class="item-right">
-						<p>书名</p>
-						<p>作者</p>
-						<p>简介</p>
-						<div class="item-tag-box">
-							<span class="item-tag">标签</span>
-						</div>
-					</div>
-				</a>
-		</li>
-		<li class="panel-item clear">
-				<a href="#">
-					<div class="item-left fl">
-						<img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg">
-						<p>完结</p> 
-					</div>
-					<div class="item-right">
-						<p>书名</p>
-						<p>作者</p>
-						<p>简介</p>
-						<div class="item-tag-box">
-							<span class="item-tag">标签</span>
-						</div>
-					</div>
-				</a>
-		</li>
-	</ul>
+	</ul> 
 	<div class="opt-btn">
 		<a href="javascript:;">换一换</a>
-		<a href="#">男生频道 >> </a>
+		<a href="/view/male">男生频道 >> </a>
 	</div>
 </section>

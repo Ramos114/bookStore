@@ -25,18 +25,31 @@ app.use(koa_static({
 app.use(controller.get("/ejs_test",function*(){
 	this.body = yield render("test",{title:"I'am a ejs!"});  
 }));
-
+ 
 //路由返回页面:首页
 app.use(controller.get("/",function*(){
 	this.body = yield render("index",{title:"首页"});  
 }));
-
+//路由返回页面:男生专场
+app.use(controller.get("/male",function*(){
+	this.set('Cache-Control', 'no-cache'); 
+	this.body = yield render("male",{title:"男生专场"});   
+}));
+//路由返回页面:女生专场
+app.use(controller.get("/female",function*(){
+	this.body = yield render("female",{title:"首页"});  
+}));
+//路由返回页面:分类
+app.use(controller.get("/category",function*(){
+	this.body = yield render("category",{title:"首页"});  
+}));
+ 
 
 
 //路由返回测试数据
 app.use(controller.get("/route_1",function*(){
 	this.body = "hi my koa!!";
-}));
+})); 
 
 //路由返回获取本地数据 
 app.use(controller.get("/api_data",function*(){

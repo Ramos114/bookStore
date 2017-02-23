@@ -1,36 +1,21 @@
-<style type="text/css">
-	.free-panel{
-
-	}
-	.free-panel li{
-		width:33.3%;
-	}
-	.free-panel li img{
-		
-	}
-</style>
 
 <section class="free-panel">
-	<ul>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
-		</li>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
-		</li>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
-		</li>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
-		</li>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
-		</li>
-		<li>
-			<a href="#"><img src="https://images-cn.ssl-images-amazon.com/images/I/518dpvtwO-L._SY346_.jpg"></a>
+	<div class="free-title">限时免费</div>
+	<ul class="clear">
+		<li v-for="item in free">
+			<a href="#">
+				<img alt="{{ item.title }}" v-bind:src="item.data.cover"> 
+				<div class="free-limit"></div>
+			</a>
 		</li>
 	</ul>
+	<div class="panel-bottom-btn"><a href="#">更多限免操作 >> </a></div> 
 
+
+	<div class="free-topic">精选专题 <em>热</em></div>
+	<div class="hot-topic clear">
+		<a href="#" v-for = "item in topic"><img v-bind:src="item.ad_pic_url"></a>
+	</div> 
+	<div class="panel-bottom-btn"><a href="#">更多精彩专题 >> </a></div>  
 </section>
 
