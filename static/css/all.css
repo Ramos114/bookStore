@@ -206,16 +206,17 @@
 	.hot-panel{
 		border-bottom: 10px solid #ddd;
 	}
-	.hot-panel .panel-item{
-		padding:10px 0;
-		border-bottom: 1px solid #ddd;
-	}
+	
 	.hot-panel .hot-title{
 		height: 40px;
 		line-height: 40px;
 		font-weight: bold;
 		text-indent: 10px;  
 		border-bottom:1px solid #ddd;
+	}
+	.panel-item{
+		padding:10px 0;
+		border-bottom: 1px solid #ddd;
 	}
 	.panel-item .item-left{
 		position: relative;
@@ -329,7 +330,7 @@
 	.recomment-panel .rank-list li{
 		height: 50px;
 		line-height: 50px;
-		border-top:1px solid #ddd;
+		border-bottom:1px solid #ddd; 
 	}
 	.recomment-panel .rank-list li span:first-child{
 		color:rgba(237,83,15,0.9);
@@ -370,3 +371,53 @@
 		width:25px;  
 		height: 25px; 
 	}
+
+
+	.mt40{margin-top: 40px;}
+		.top-bar{
+			height: 40px;
+			line-height: 40px;
+			background:#efefef;
+			border-bottom:1px solid #ddd;
+		}
+		.top-bar .return-btn{
+			display: block;
+			width:40px;
+			height: 40px;
+			text-align: center;
+		}
+		.top-bar .return-btn:after{
+			content: '';
+			display: inline-block;
+			width:20px;
+			height: 22px;
+			background: url('/static/img/back.png') no-repeat;
+			background-size: 60%;
+			vertical-align: middle;
+		}
+		.top-bar .home-btn{
+			display: block;
+			width:40px;
+			height: 40px;
+			text-align: center; 
+		}
+		.top-bar .home-btn:after{
+			content: '';
+			display: inline-block;
+			width:20px;
+			height: 20px;
+			background: url('/static/img/home.png') no-repeat;
+			background-size: 90%;
+			vertical-align: middle; 
+		}
+
+		.weclome-bar{
+			height: 40px; 
+		    line-height: 40px;
+		    font-weight: bold;
+		    text-indent: 20px;
+		    border-left: 6px solid #ffab18;
+		} 
+		.panel-list{
+			border-bottom: 10px solid #ddd;
+		}

@@ -18,6 +18,16 @@ exports.get_rank_data = function(){
 	return content; 
 }
 
+//男生女生频道
+exports.get_male_data = function(){
+	var content = fs.readFileSync('./mock/channel/male.json', 'utf-8'); 
+	return content;
+}
+exports.get_female_data = function(){
+	var content = fs.readFileSync('./mock/channel/female.json', 'utf-8'); 
+	return content;
+}
+
 //图书类别的接口
 exports.get_category_data = function(){
 	var content = fs.readFileSync('./mock/category.json', 'utf-8');
@@ -38,6 +48,7 @@ exports.get_book_data = function(id){
 	var content = fs.readFileSync('./mock/book/'+id+'.json', 'utf-8'); 
 	return content;
 }
+
 
 
 //搜索接口(小米服务器端的)

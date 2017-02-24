@@ -31,17 +31,20 @@ app.use(controller.get("/",function*(){
 	this.body = yield render("index",{title:"首页"});  
 }));
 //路由返回页面:男生专场
-app.use(controller.get("/male",function*(){
-	this.set('Cache-Control', 'no-cache'); 
+app.use(controller.get("/male",function*(){ 
 	this.body = yield render("male",{title:"男生专场"});   
 }));
 //路由返回页面:女生专场
 app.use(controller.get("/female",function*(){
-	this.body = yield render("female",{title:"首页"});  
+	this.body = yield render("female",{title:"女生专场"});  
 }));
 //路由返回页面:分类
 app.use(controller.get("/category",function*(){
 	this.body = yield render("category",{title:"首页"});  
+}));
+//路由返回页面:排行
+app.use(controller.get("/rank",function*(){
+	this.body = yield render("rank",{title:"排行"});  
 }));
  
 
@@ -59,6 +62,14 @@ app.use(controller.get("/api_data",function*(){
 //路由设置：返回首页数据
 app.use(controller.get("/ajax/index",function*(){
 	this.body = service.get_index_data();   
+}));
+
+app.use(controller.get("/ajax/male",function*(){
+	this.body = service.get_male_data();
+}));
+
+app.use(controller.get("/ajax/female",function*(){
+	this.body = service.get_female_data();
 }));
 
 //路由设置：返回排行榜数据

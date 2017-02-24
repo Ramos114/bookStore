@@ -6,14 +6,103 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/all.css">
 	<meta name="format-detection" content="telephone=no">
-	<title><% title %></title>
+	<title><%=title%></title> 
 </head>
 <body>
 	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
-		
+		<div class="top-bar">
+			<a class="fl return-btn" href="/"></a>
+			<span class="fl">男生频道</span>
+			<a class="fr home-btn" href="/"></a> 
+		</div>
+		<div class="container-scroll mt40">
+			<div class="weclome-bar">
+				最受关注
+			</div>
+			<ul class="panel-list"> 
+				<li class="panel-item clear" v-for="item in weclome">  
+						<a href="#">
+							<div class="item-left fl">
+								<img alt="" v-bind:src="item.cover">
+							</div>
+							<div class="item-right">
+								<p>{{ item.title }} </p> 
+								<p>{{ item.authors }}</p>
+								<p>{{ item.summary }}</p> 
+								<div class="item-tag-box">
+									<span class="item-tag" v-for="tag in item.categories">{{ tag.label }}</span>
+								</div>
+							</div>
+						</a>
+				</li>		
+			</ul>
+			<div class="weclome-bar">
+				主编推荐
+			</div>
+			<ul class="panel-list"> 
+				<li class="panel-item clear" v-for="item in editer">  
+						<a href="#">
+							<div class="item-left fl">
+								<img alt="" v-bind:src="item.cover">
+							</div>
+							<div class="item-right">
+								<p>{{ item.title }} </p> 
+								<p>{{ item.authors }}</p>
+								<p>{{ item.summary }}</p> 
+								<div class="item-tag-box">
+									<span class="item-tag" v-for="tag in item.categories">{{ tag.label }}</span>
+								</div>
+							</div>
+						</a>
+				</li>		
+			</ul>
+			<div class="weclome-bar">
+				新书入库
+			</div>
+			<ul class="panel-list"> 
+				<li class="panel-item clear" v-for="item in newbooks">  
+						<a href="#">
+							<div class="item-left fl">
+								<img alt="" v-bind:src="item.cover">
+							</div>
+							<div class="item-right">
+								<p>{{ item.title }} </p> 
+								<p>{{ item.authors }}</p>
+								<p>{{ item.summary }}</p> 
+								<div class="item-tag-box">
+									<span class="item-tag" v-for="tag in item.categories">{{ tag.label }}</span>
+								</div>
+							</div>
+						</a>
+				</li>		
+			</ul>
+			<div class="weclome-bar">
+				完结好书
+			</div>
+			<ul class="panel-list"> 
+				<li class="panel-item clear" v-for="item in goodbooks">  
+						<a href="#">
+							<div class="item-left fl">
+								<img alt="" v-bind:src="item.cover">
+							</div>
+							<div class="item-right">
+								<p>{{ item.title }} </p> 
+								<p>{{ item.authors }}</p>
+								<p>{{ item.summary }}</p> 
+								<div class="item-tag-box">
+									<span class="item-tag" v-for="tag in item.categories">{{ tag.label }}</span>
+								</div>
+							</div>
+						</a>
+				</li>		
+			</ul>
+
+		</div>
 	</div>
 	
 	<script src="/static/script/vue.js"></script> 
 	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/male.js"></script>
+
 </body>
 </html>
