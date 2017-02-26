@@ -124,6 +124,7 @@ app.use(controller.get("/ajax/book",function*(){
 	if (!id) {
 		id = "18218";
 	}
+	id = "18218"; 
 	this.body = service.get_book_data(id);  
 
 }));

@@ -18,18 +18,17 @@
 	}
 </style>
 
-<section class="shelf-panel">
+<section class="shelf-panel container-scroll">
 	<div class="shelf-top">
 		<a href="/search">
 			<div class="top-search">输入书名/作者/关键字</div> 
 		</a>
 	</div>
 	<ul class="shelf-list">
-		<li class="panel-item clear"> 
+		<li class="panel-item clear" v-for="item in hot"> 
 				<a href="/book?id={{item.fiction_id}}">
-					<div class="item-left fl">
-						<img alt="渣王作妃" src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p017io4EIZgP/tK1TkKVduNMK7w.jpg">
-						<p>完结</p> 
+					<div class="item-left fl"> 
+						<img v-bind:src="item.cover"> 
 					</div>
 					<div class="item-right">
 						<p>渣王作妃</p> 
@@ -41,37 +40,6 @@
 					</div>
 				</a>
 		</li>
-		<li class="panel-item clear"> 
-				<a href="/book?id={{item.fiction_id}}">
-					<div class="item-left fl">
-						<img alt="渣王作妃" src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p017io4EIZgP/tK1TkKVduNMK7w.jpg">
-						<p>完结</p> 
-					</div>
-					<div class="item-right">
-						<p>渣王作妃</p> 
-						<p>浅浅的心</p>
-						<p>大元王朝湛王爷，有权有财有貌，就是人变态了点！容家九小姐，有貌善良清纯，可惜除了貌其他都是装的！娶她...</p> 
-						<div class="item-tag-box">
-							<span class="item-tag">渣王作妃</span><span class="item-tag">历史穿越</span><span class="item-tag">古代情缘</span> 
-						</div>
-					</div>
-				</a>
-		</li>
-		<li class="panel-item clear"> 
-				<a href="/book?id={{item.fiction_id}}">
-					<div class="item-left fl">
-						<img alt="渣王作妃" src="http://cover.read.duokan.com/mfsv2/download/fdsc3/p017io4EIZgP/tK1TkKVduNMK7w.jpg">
-						<p>完结</p> 
-					</div>
-					<div class="item-right">
-						<p>渣王作妃</p> 
-						<p>浅浅的心</p>
-						<p>大元王朝湛王爷，有权有财有貌，就是人变态了点！容家九小姐，有貌善良清纯，可惜除了貌其他都是装的！娶她...</p> 
-						<div class="item-tag-box">
-							<span class="item-tag">渣王作妃</span><span class="item-tag">历史穿越</span><span class="item-tag">古代情缘</span> 
-						</div>
-					</div>
-				</a>
-		</li>
+		
 	</ul>
 </section>

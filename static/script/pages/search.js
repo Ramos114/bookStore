@@ -6,11 +6,12 @@ new Vue({
 		rData:[],
 		vshow:true,
 	},
+	file
 	methods:{
 		searchBtn:function(e){
 			var keyword = this.val;
 			$.get('/ajax/search',{keyword:keyword},function(d){
-				this.val = "1111111111"; 
+				this.val = ""; 
 				this.vshow = false;
 
 				this.rData = d.items;    

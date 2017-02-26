@@ -24,8 +24,8 @@
 	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
 		<% include include/common-top.html %>
 		
-		<div class="container-scroll mt40">
-			<ul class="panel-list rank-list"> 
+		<div class="container-scroll mt40" v-cloak>
+			<ul class="panel-list rank-list" >   
 				<li class="panel-item clear" v-for="item in rank">  
 					<a href="/book?id={{item.fiction_id}}">
 						<div class="item-left fl">
@@ -41,7 +41,7 @@
 		</div>
 	</div>
 	
-	<script src="/static/script/vue.js"></script> 
+	<script src="/static/script/vue.js"></script>  
 	<script src="/static/script/zepto.js"></script>
 	<script src="/static/script/pages/rank.js"></script>
 

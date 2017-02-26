@@ -14,17 +14,17 @@
 		<div style="width:{{w_width*2}}px; height:100%; transition-duration: {{ duration }}s; transform:translate3d({{ position }}px,0px,0px);">  
 			
 			<div class="container-wrap" style="width:{{w_width}}px; float:left;">
-					<div class="container-scroll" >  
+					<div class="container-scroll" v-cloak>
 						<% include include/index-top.html %>
 						<% include include/index-hot.html %>
-						<% include include/index-recommend.html %>
+						<% include include/index-recommend.html %> 
 						<% include include/index-female.html %>
 						<% include include/index-male.html %>
 						<% include include/index-free.html %>
 						<% include include/index-bottom.html %>
 					</div>
 			</div>   
-			<div style="width:{{w_width}}px; float: left;"> 
+			<div class="container-wrap" style="width:{{w_width}}px; float: left;"> 
 				<% include include/index-shelf.html %> 
 			</div>   
 		</div> 

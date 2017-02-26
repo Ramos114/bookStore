@@ -6,30 +6,30 @@
 	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
 	<link rel="stylesheet" type="text/css" href="/static/css/all.css">
 	<meta name="format-detection" content="telephone=no">
-	<title><%=title%></title> 
+	<title><%=title%></title>  
 </head>
 <body>
 	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
 		<% include include/common-top.html %>
-		<div class="container-scroll mt40">
+		<div class="container-scroll mt40" v-cloak> 
 			<div class="weclome-bar">
 				最受关注
-			</div>
+			</div> 
 			<ul class="panel-list"> 
 				<li class="panel-item clear" v-for="item in weclome">  
 						<a href="/book?id={{item.fiction_id}}">
-							<div class="item-left fl">
-								<img alt="" v-bind:src="item.cover">
+							<div class="item-left fl" >
+								<img  alt="" v-bind:src="item.cover">
 							</div>
 							<div class="item-right">
-								<p>{{ item.title }} </p> 
-								<p>{{ item.authors }}</p>
-								<p>{{ item.summary }}</p> 
+								<p>{{item.title}}</p>   
+								<p>{{item.authors}}</p>
+								<p>{{item.summary}}</p>   
 								<div class="item-tag-box">
 									<span class="item-tag" v-for="tag in item.categories">{{ tag.label }}</span>
 								</div>
-							</div>
-						</a>
+							</div> 
+						</a> 
 				</li>		
 			</ul>
 			<div class="weclome-bar">
@@ -97,6 +97,7 @@
 	</div>
 	
 	<script src="/static/script/vue.js"></script> 
+	<!-- <script src="https://unpkg.com/vue/dist/vue.js"></script>  -->
 	<script src="/static/script/zepto.js"></script>
 	<script src="/static/script/pages/female.js"></script>
 

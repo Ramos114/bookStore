@@ -44,8 +44,7 @@
 			}
 			
 			.ui-tab{
-			    margin:20px auto;
-			    margin-bottom:0;
+			    margin:20px auto;  
 			    width:80%; 
 			    line-height:30px;
 			    height:30px;
@@ -222,8 +221,8 @@
 		<div id="root" class="container">
 		    
 		    <div id="nav_top" class="nav-top"  style="display:none;">
-		        <div class="nav-back-icon"></div>
-		        <div class="nav-back-txt"></div>
+		        <div class="nav-back-icon" onclick="history.back()"></div>
+		        <div class="nav-back-txt"></div> 
 		    </div>
 		    <div class="action-box">
 		        <div class="action-mid" id="action_mid"></div>
@@ -231,12 +230,12 @@
 		    
 		    <div id="fiction_chapter_title"></div>
 		    <div id="fiction_container" class="m-read-content">
-		       
+		        
 		    </div>
-		    <div id="m-button-bar">
+		    <div id="m-button-bar" style="display:none;">
 		        <ul class="ui-tab">
-		            <li id="prev_button">prev</li>
-		            <li id="next_button">next</li>
+		            <li id="prev_button">上一页</li>
+		            <li id="next_button">下一页</li>
 		        </ul>
 		    </div>
 		    <div class="font-panel-wrap" id="font_panel"  style="display:none;">
@@ -357,6 +356,8 @@
 			      
 			       readerModel.init(function(data){
 			           readerUI(data); 
+
+			           $("#m-button-bar").show(); 
 			       });
 			        
 			       //use promise 
@@ -401,7 +402,7 @@
 			           
 			        
 			        
-			        var getFictionInfo = function(callback){
+			        /*var getFictionInfo = function(callback){
 			           $.get('/ajax/reader',function(data){
 			               Chapter_id = DataStorage.StorageGetter("chapter_id"); 
 			               if(Chapter_id == null){ 
@@ -410,8 +411,8 @@
 			               Chapter_total = data.chapters.length;
 			               callback && callback(); 
 			           },'json');
-			       }
-			       
+			       }*/
+			        
 			        // use promise
 			        var getFictionInfoPromise =  function(){
 			            return new Promise(function(resolve,reject){
@@ -434,7 +435,7 @@
 			        };
 			       
 			       
-			       var getChapterContent = function(chapter_id,callback){
+			       /*var getChapterContent = function(chapter_id,callback){
 			           $.get('data/data'+ chapter_id +'.json',function(data){
 			               if(data.result == 0){
 			                   var url = data.jsonp; 
@@ -443,7 +444,7 @@
 			                   });
 			               }
 			           },'json');
-			       }
+			       }*/
 
 			       //use promise
 			       var getChapterContentPromise = function(){ 
@@ -470,7 +471,7 @@
 			           }
 			           Chapter_id -= 1;
 			           DataStorage.StorageSetter("chapter_id",Chapter_id);
-			           getChapterContent(Chapter_id,callback);
+			           getChapterContentPromise(Chapter_id,callback);
 			           
 			       }
 			       
@@ -481,7 +482,7 @@
 			           }
 			           Chapter_id += 1;
 			           DataStorage.StorageSetter("chapter_id",Chapter_id);
-			           getChapterContent(Chapter_id,callback);
+			           getChapterContentPromise(Chapter_id,callback); 
 			       }
 			       
 			       
