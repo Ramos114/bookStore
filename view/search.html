@@ -60,15 +60,15 @@
 			padding:3px 10px;
 			border:1px solid #ddd;
 			border-radius:5px;
-			margin: 10px 0; 
-			margin-right: 10px;
+			margin-top: 10px; 
+			margin-right: 10px; 
 		}
 		.data-tags li:nth-child(3n+1){
 			background:#fbebe8;
 		}
 		.data-tags li:nth-child(3n+2){
 			background:#fcedda;
-		}
+		} 
 		.data-tags li:nth-child(3n+3){
 			background:#e8f9db;
 		}
@@ -92,7 +92,7 @@
 				<li>苍老师</li>
 				<li>不论的爱</li>
 			</ul>
-			<ul class="data-list"  v-show="!vshow">
+			<ul class="data-list"  v-show="!vshow" v-cloak>
 				<li class="panel-item clear" v-for="item in rData"> 
 					<a href="/book?id">
 						<div class="item-left fl">
