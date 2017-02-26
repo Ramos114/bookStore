@@ -32,11 +32,11 @@ app.use(controller.get("/",function*(){
 }));
 //路由返回页面:男生专场
 app.use(controller.get("/male",function*(){ 
-	this.body = yield render("male",{title:"男生专场"});   
+	this.body = yield render("male",{title:"男生专场",nav:"男生频道"});   
 }));
 //路由返回页面:女生专场
 app.use(controller.get("/female",function*(){
-	this.body = yield render("female",{title:"女生专场"});  
+	this.body = yield render("female",{title:"女生专场",nav:"女生频道"});  
 }));
 //路由返回页面:分类
 app.use(controller.get("/category",function*(){
@@ -44,7 +44,19 @@ app.use(controller.get("/category",function*(){
 }));
 //路由返回页面:排行
 app.use(controller.get("/rank",function*(){
-	this.body = yield render("rank",{title:"排行"});  
+	this.body = yield render("rank",{title:"排行",nav:"排行"});  
+}));
+//路由返回页面:书籍详情
+app.use(controller.get("/book",function*(){
+	this.body = yield render("book",{title:"书籍详情",nav:"书籍详情"}); 
+}));
+//路由返回页面:搜索
+app.use(controller.get("/search",function*(){
+	this.body = yield render("search",{title:"搜索",nav:"搜索"});  
+}));
+//路由返回页面:阅读器
+app.use(controller.get("/reader",function*(){
+	this.body = yield render("reader",{}); 
 }));
  
 
@@ -86,6 +98,23 @@ app.use(controller.get("/ajax/backet",function*(){
 app.use(controller.get("/ajax/category",function*(){
 	this.body = service.get_category_data(); 
 }));
+
+//阅读器：章节
+app.use(controller.get("/ajax/chapter",function*(){
+	this.body = service.get_chapter_data(); 
+}));
+
+//阅读器：章节
+app.use(controller.get("/ajax/chapter_data",function*(){
+	var querystring = require('querystring');
+	var params = querystring.parse(this.req._parsedUrl.query);
+	var id = params.id;
+	if (!id) {
+		id = "";
+	} 
+	this.body = service.get_chapter_content_data(id); 
+}));
+
 
 //路由设置：图书数据
 app.use(controller.get("/ajax/book",function*(){

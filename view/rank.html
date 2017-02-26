@@ -22,15 +22,12 @@
 </head>
 <body>
 	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
-		<div class="top-bar">
-			<a class="fl return-btn" href="/"></a>
-			<span class="fl">排行</span>
-			<a class="fr home-btn" href="/"></a> 
-		</div>
+		<% include include/common-top.html %>
+		
 		<div class="container-scroll mt40">
 			<ul class="panel-list rank-list"> 
 				<li class="panel-item clear" v-for="item in rank">  
-					<a href="#">
+					<a href="/book?id={{item.fiction_id}}">
 						<div class="item-left fl">
 							<img alt="" v-bind:src="item.cover">
 						</div>

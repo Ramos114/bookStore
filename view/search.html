@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/all.css">
+	<meta name="format-detection" content="telephone=no">
+	<title><%=title%></title> 
+	<style type="text/css">
+		.mt80{
+			margin-top: 80px;
+		}
+		.search-bar{
+			padding:5px 15px;
+			background: #eee;
+		}
+		.search-box{
+			position: relative;
+			height: 33px;
+			line-height: 33px;
+			border:1px solid #ddd; 
+		}
+		.search-box .search-icon{
+			position: absolute;
+			left:0;
+			top:0;
+			width:33px;
+			height:33px;
+			border-right:1px solid #ddd;
+			background:url('http://www.easyicon.net/api/resizeApi.php?id=1912&size=24') no-repeat center;
+			background-size: 18px; 
+		}
+		.search-box input{
+			width:100%; 
+			height: 33px;
+			line-height: 33px;
+			text-indent: 50px;
+			border:0;
+		}
+		.search-box .search-btn{
+			position: absolute;
+			right:0;
+			top:0;
+			width:60px;
+			height: 33px;
+			line-height: 33px;
+			text-align:center;
+			border:none;
+			border-left:1px solid #ddd;  
+			background: #fff;
+		}
+
+		.data-tags{
+			margin:10px 50px; 
+		}
+		.data-tags li{
+			float:left;
+			display: inline-block;
+			padding:3px 10px;
+			border:1px solid #ddd;
+			border-radius:5px;
+			margin: 10px 0; 
+			margin-right: 10px;
+		}
+		.data-tags li:nth-child(3n+1){
+			background:#fbebe8;
+		}
+		.data-tags li:nth-child(3n+2){
+			background:#fcedda;
+		}
+		.data-tags li:nth-child(3n+3){
+			background:#e8f9db;
+		}
+
+	</style>
+</head>
+<body>
+	<div id="appSearch" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
+		<% include include/common-top.html %>
+		<div class="search-bar"> 
+			<div class="search-box">
+				<i class="search-icon"></i>
+				<input type="text" v-model='val' placeholder="输入书名/作者/关键字">
+				<button class="search-btn" v-on:click='searchBtn()'>搜 索</button> 
+			</div> 
+		</div>
+		<div class="container-scroll mt80">
+			<ul class="data-tags" v-show="vshow">
+				<li>我的美女老婆</li>
+				<li>复仇浅井</li>
+				<li>苍老师</li>
+				<li>不论的爱</li>
+			</ul>
+			<ul class="data-list"  v-show="!vshow">
+				<li class="panel-item clear" v-for="item in rData"> 
+					<a href="/book?id">
+						<div class="item-left fl">
+							<img  v-bind:src="item.cover"> 
+							<p>完结</p> 
+						</div>   
+						<div class="item-right"> 
+							<p>{{ item.intro }}</p> 
+						</div>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div> 
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- <script src="/static/script/vue.js"></script>  -->
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/search.js"></script>
+
+</body>
+</html>

@@ -40,15 +40,26 @@ exports.get_backet_data = function(){
 	return content;
 }
 
+exports.get_chapter_data = function(){
+	var content = fs.readFileSync('./mock/reader/chapter.json', 'utf-8'); 
+	return content;
+}
+exports.get_chapter_content_data = function(id){
+	if (!id) {
+		id = "1";
+	}
+	var content = fs.readFileSync('./mock/reader/data/data'+id+'.json', 'utf-8'); 
+	return content;
+}
+
 //书籍详情接口
-exports.get_book_data = function(id){
+exports.get_book_data = function(id){ 
 	if (!id) {
 		id = "18218";
 	}
 	var content = fs.readFileSync('./mock/book/'+id+'.json', 'utf-8'); 
 	return content;
 }
-
 
 
 //搜索接口(小米服务器端的)

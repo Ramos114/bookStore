@@ -3,7 +3,7 @@
 	<div class="free-title">限时免费</div>
 	<ul class="clear">
 		<li v-for="item in free">
-			<a href="#">
+			<a href="/book?id={{item.fiction_id}}">
 				<img alt="{{ item.title }}" v-bind:src="item.data.cover"> 
 				<div class="free-limit"></div>
 			</a>

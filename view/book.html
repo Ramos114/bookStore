@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" type="text/css" href="/static/css/base.css">
+	<link rel="stylesheet" type="text/css" href="/static/css/all.css">
+	<meta name="format-detection" content="telephone=no">
+	<title><%=title%></title> 
+	<style type="text/css">
+		.book-detail{
+			padding:10px;
+		}
+		.book-detail-t{
+			padding:6%;
+			background:#fff;
+		}
+		.book-detail .b-cover{
+			width:90px;
+			height: 120px;
+			box-shadow: 0px 2px 2px #bbb; 
+			overflow: hidden;
+		}
+		.book-detail .b-cover img{
+			width:100%;
+			height:100%;
+		}
+		.book-detail .b-info{
+			margin-left: 120px;
+
+		}
+		.book-detail p{
+			line-height: 20px;
+			vertical-align: middle;
+		}
+		.book-detail .b-info-title{
+			margin-top: 10px;
+			font-size: 16px;
+			font-weight: bold;
+		}
+		.book-detail .b-info-authors{
+			color:#4b99a7;
+		}
+		.book-detail .b-info-count span{
+			padding:2px;
+			border:1px solid #63bd6e; 
+			border-radius:5px;
+			color:#63bd6e;
+			font-size: 12px;
+
+		}
+		.btn-full-orange{
+			display: block;
+			width:100%;
+			height: 40px;
+			line-height: 40px;
+			color:#fff;
+			background:#f35d02;
+			border:1px solid #e35109;
+			border-radius:5px;
+			text-align:center; 
+		}
+		.book-detail .book-detail-summary{
+			padding:10px 0;
+		}
+		.book-detail .book-detail-news{
+			margin-top: 5px;
+			text-align: center;
+			color:#999;
+		}
+		.book-other{
+			border-top: 10px solid #ddd;
+			padding:10px; 
+		}
+		.book-other h4{
+			font-size: 15px;
+			line-height: 30px;
+			color: #999;
+			margin-bottom: 5px;
+		}
+		.book-other .category-tags span{
+			display: inline-block;
+			margin-right: 10px;
+			padding:1px 10px;
+			border:1px solid #ddd; 
+			border-radius:5px;
+			background:#fbebe8;
+
+		}
+		.book-detail-item{
+			float:left;
+			width:33.3%; 
+		}
+		.book-detail-item .item-box{
+			display: inline-block;
+			width:85px;
+			height: 140px; 
+
+		}
+		.book-detail-item:nth-child(3n+1){
+
+		}
+		.book-detail-item:nth-child(3n+2){
+			text-align: center;
+		}
+		.book-detail-item:nth-child(3n+3){
+			text-align: right; 
+		}
+		.book-detail-item .book-cover{
+			width:85px;
+			height: 110px;
+			overflow: hidden;
+			box-shadow: 0px 2px 2px #bbb; 
+		}
+		.book-detail-item .book-cover img{
+			width:100%;
+			height:100%;
+		}
+		.book-detail-item b{
+			display: block;
+			width:85px;
+			line-height: 18px;
+			text-align: left; 
+			font-weight:normal;
+			padding:5px 0;
+			color:#999;
+			font-size: 12px;
+		}
+	</style>
+</head>
+<body>
+	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
+		<% include include/common-top.html %>
+
+		<div class="container-scroll mt40">
+			<div class="book-page">
+				<section class="book-detail">
+					<div class="book-detail-t clear">
+						<div class="b-cover fl">
+							<img v-bind:src="book.cover">
+						</div>
+						<div class="b-info">
+							<p class="b-info-title">{{ book.title }}</p>
+							<p class="b-info-authors">{{ book.authors }}</p>
+							<p>{{ book.comment_count }}条评论</p>
+							<p>价格：{{book.score}}</p>
+							<p class="b-info-count">字数：{{ book.word_count }}字 <span>连载中</span></p>
+							
+						</div>
+					</div>
+					<div>
+						<a href="javascript:;" class="btn-full-orange" v-on:click='readBook()'>开始阅读</a>
+						<div class="book-detail-summary">
+							{{ book.content }}
+						</div>
+						<div class="book-detail-news">最新：{{ book.latest }}</div>
+					</div>
+				</section>
+				<section class="book-other">
+					<h4>标签类别</h4>
+					<div class="category-tags">
+						<span v-for="tag in book.tags">盗墓笔记</span>
+					</div> 
+				</section>
+				<section class="book-other">
+					<h4>作者的其他作品</h4>
+					<ul class="clear">
+						<li class="book-detail-item" v-for="item in author_book">
+							<div class="item-box">
+								<div class="book-cover"> 
+									<img v-bind:src="item.cover"></div>
+								<b>{{item.title}}</b>
+							</div>
+						</li>
+					</ul>
+				</section>
+				<section class="book-other">
+					<h4>喜欢这本书的人也喜欢</h4>
+					<ul class="clear">
+						<li class="book-detail-item" v-for="item in related">
+							<div class="book-cover"><img v-bind:src="item.cover"></div>
+							<b>{{item.title}}</b>
+						</li>
+					</ul>
+				</section>
+				<section class="book-other">
+					<h4>图书信息</h4>
+					<div>版权信息：{{book.rights}}</div>
+				</section
+
+			</div>
+		</div>
+	</div>
+	
+	<script src="/static/script/vue.js"></script> 
+	<script src="/static/script/zepto.js"></script>
+	<script src="/static/script/pages/book.js"></script>
+
+</body>
+</html>
