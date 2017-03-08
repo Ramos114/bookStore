@@ -9,11 +9,11 @@
 	<title>书城首页</title>
 </head>
 <body>
-	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
+	<div id="app" v-bind:style="{width:w_width +'px',height:'100%',overflow:'hidden'}">
 		<% include include/header.html %>
-		<div style="width:{{w_width*2}}px; height:100%; transition-duration: {{ duration }}s; transform:translate3d({{ position }}px,0px,0px);">  
+		<div v-bind:style="{width:w_width*2+'px',height:'100%','transition-duration':duration+'s',transform:'translate3d('+position +'px'+',0px'+',0px)'}">   
 			
-			<div class="container-wrap" style="width:{{w_width}}px; float:left;">
+			<div class="container-wrap" v-bind:style="{width:w_width+'px', float:'left'}">
 					<div class="container-scroll" v-cloak>
 						<% include include/index-top.html %>
 						<% include include/index-hot.html %>
@@ -24,7 +24,7 @@
 						<% include include/index-bottom.html %>
 					</div>
 			</div>   
-			<div class="container-wrap" style="width:{{w_width}}px; float: left;"> 
+			<div class="container-wrap" v-bind:style="{width:w_width+'px',float:'left'}"> 
 				<% include include/index-shelf.html %> 
 			</div>   
 		</div> 

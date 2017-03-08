@@ -3,7 +3,7 @@
 	<div class="swipe-tab clear">
 		<a href="javascript:;" v-on:click='tabSwith(0)' class="{{ tab_current_on}}"></a>
 		<a href="javascript:;" v-on:click='tabSwith(1)' class="{{ tab_current_off}}"></a>  
-		<i style="transition-duration: {{ h_duration }}s; transform:translate3d({{ h_position }}%,0px,0px);""></i> 
+		<i v-bind:style="{'transition-duration':h_duration+'s',transform:'translate3d('+h_position+'%,0px,0px)'}"></i> 
 	</div>
 	<!-- <em class="header-user"></em> -->
 	<em class="header-checkin"></em>

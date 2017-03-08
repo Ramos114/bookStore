@@ -18,7 +18,7 @@ var koa_static = require("koa-static-server");
 app.use(koa_static({
 	rootDir:'./static',
 	rootPath:'/static', //url直接访问 
-	maxage:0  //缓存
+	maxage:1000  //缓存
 }))
 
 //路由返回页面:测试

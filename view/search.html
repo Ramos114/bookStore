@@ -9,7 +9,7 @@
 	<title><%=title%></title> 
 	<style type="text/css">
 		.mt80{
-			margin-top: 80px;
+			margin-top: 90px; 
 		}
 		.search-bar{
 			padding:5px 15px;
@@ -52,7 +52,7 @@
 		}
 
 		.data-tags{
-			margin:10px 50px; 
+			margin:0 20px;
 		}
 		.data-tags li{
 			float:left;
@@ -73,26 +73,29 @@
 			background:#e8f9db;
 		}
 
-	</style>
+		.no-data{
+			margin:50px auto;
+			text-align: center;
+			color:#999;
+		}
+	
+	</style> 
 </head>
 <body>
-	<div id="appSearch" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
+	<div id="app" v-bind:style="{width:w_width +'px',height:'100%',overflow:'hidden'}">
 		<% include include/common-top.html %>
 		<div class="search-bar"> 
 			<div class="search-box">
 				<i class="search-icon"></i>
-				<input type="text" v-model='val' placeholder="输入书名/作者/关键字">
-				<button class="search-btn" v-on:click='searchBtn()'>搜 索</button> 
-			</div> 
+				<input type="text" v-model='val' placeholder="输入书名/作者/关键字" v-on:focus="getFocus()">
+				<button class="search-btn" v-on:click='searchBtn($event)'>搜 索</button> 
+			</div>
 		</div>
 		<div class="container-scroll mt80">
-			<ul class="data-tags" v-show="vshow">
-				<li>我的美女老婆</li>
-				<li>复仇浅井</li>
-				<li>苍老师</li>
-				<li>不论的爱</li>
+			<ul class="data-tags" v-cloak> 
+				<li v-for="tag in tags" v-on:click="clickTag(tag,$event)" v-bind:rel="tag" v-show="v_tags_show">{{tag}}</li>  
 			</ul>
-			<ul class="data-list"  v-show="!vshow" v-cloak>
+			<ul class="data-list"  v-show="v_data_show" v-cloak>
 				<li class="panel-item clear" v-for="item in rData"> 
 					<a href="/book?id">
 						<div class="item-left fl">
@@ -105,12 +108,13 @@
 					</a>
 				</li>
 			</ul>
+			<div class="no-data" v-show="v_s_show" v-cloak>没有更多数据啦~~</div>
+			
 		</div>
 	</div> 
 	<script src="https://unpkg.com/vue/dist/vue.js"></script>
-	<!-- <script src="/static/script/vue.js"></script>  -->
 	<script src="/static/script/zepto.js"></script>
 	<script src="/static/script/pages/search.js"></script>
-
+	
 </body>
 </html>

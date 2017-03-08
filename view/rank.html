@@ -21,7 +21,7 @@
 	</style>
 </head>
 <body>
-	<div id="app" style="width:{{w_width}}px; overflow:hidden; height: 100%;">
+	<div id="app" v-bind:style="{width:w_width +'px',height:'100%',overflow:'hidden'}">
 		<% include include/common-top.html %>
 		
 		<div class="container-scroll mt40" v-cloak>
